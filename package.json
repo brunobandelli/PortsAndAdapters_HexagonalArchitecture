@@ -1,0 +1,33 @@
+{
+  "name": "portsandadapters_hexagonalarchiteture",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prisma:migrate": "prisma migrate dev --schema=src/infrastructure/db/prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema=src/infrastructure/db/prisma/schema.prisma",
+    "prisma:studio": "prisma studio --schema=src/infrastructure/db/prisma/schema.prisma",
+    "prisma:format": "prisma format --schema=src/infrastructure/db/prisma/schema.prisma",
+    "prisma:dbpush": "prisma db push --schema=src/infrastructure/db/prisma/schema.prisma",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.0",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.13.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0"
+  }
+}

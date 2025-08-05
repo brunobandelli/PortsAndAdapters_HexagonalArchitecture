@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ======== Enums ========
+enum TypeTelephone {
+  residencial
+  comercial
+  celular
+}
+
+// ======== Models ========
+model Client {
+  id         String      @id @default(cuid())
+  name       String
+  telephone Telephone[] 
+}
+
+model Telephone {
+  id       String       @id @default(cuid())
+  type     TypeTelephone
+  number   String
+  client   Client       @relation(fields: [clientId], references: [id])
+  clientId String
+}

@@ -1,0 +1,83 @@
+# Ignora dependências
+/node_modules/
+
+# Ignora arquivos gerados pelo Prisma (client e engines)
+/prisma/generated/
+/.prisma/
+/**/.prisma/
+/**/prisma-client/
+/**/engines/
+
+# Ignora arquivos de build ou temporários
+/dist/
+/build/
+/.out/
+/.cache/
+/*.log
+*.log
+*.tmp
+*.tmp.*
+
+# Ignora o ambiente local
+# .env
+# .env.*.local
+# .env.local
+
+# Ignora arquivos do VSCode e sistema
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Opcional: ignora lockfile do npm/yarn se você preferir usar só um
+package-lock.json
+# ou
+# yarn.lock
+
+# Prisma Engines (opcional se não quer subir nenhuma engine nativa)
+**/node_modules/@prisma/engines/
+
+# Ignora os binários gerados
+**/node_modules/.bin/
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Build outputs
+dist/
+build/
+.cache/
+.tmp/
+temp/
+out/
+
+# Prisma
+prisma/generated/
+**/prisma/runtime/
+.prisma/
+
+# Env files
+# .env
+# .env.*.local
+# .env.local
+
+# SQLite (local db)
+*.sqlite
+*.db
+
+# Editor & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Coverage & test artifacts
+coverage/
+*.lcov
+
+# Logs
+*.log
+logs/
