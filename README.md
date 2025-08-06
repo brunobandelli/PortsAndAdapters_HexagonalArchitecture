@@ -6,6 +6,7 @@ Uma prova de conceito simples de **Arquitetura Hexagonal (Ports & Adapters)**, d
 
 A arquitetura hexagonal (ou Ports & Adapters), criada por Alistair Cockburn em 2005, tem como objetivo isolar as regras de negócio do sistema de qualquer dependência externa, como frameworks, bancos de dados ou APIs. O nome vem da ideia visual de conectar diferentes “lados” da aplicação por meio de portas (interfaces) e adaptadores (implementações). Isso torna o sistema mais modular, testável e fácil de manter.
 
+![Hexagonal Architecture](./hexagonal.png)
 
 ## 🚀 Como Rodar a Aplicação
 
