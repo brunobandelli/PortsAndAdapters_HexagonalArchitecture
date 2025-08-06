@@ -119,7 +119,9 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.ClientScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  email: 'email',
+  password: 'password'
 };
 
 exports.Prisma.TelephoneScalarFieldEnum = {
@@ -132,6 +134,11 @@ exports.Prisma.TelephoneScalarFieldEnum = {
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 exports.TypeTelephone = exports.$Enums.TypeTelephone = {
   residencial: 'residencial',

@@ -1,5 +1,5 @@
 import { Client } from '../../domain/client';
-import { IClientRepository } from '../ports/repositories/clientRepository';
+import { IClientRepository } from '../ports/repositories/IClientRepository';
 
 interface RemoveTelephoneByClientDTO {
     clientId: string,
@@ -15,7 +15,7 @@ export class RemoveTelephoneByClient {
 
     async execute(dto: RemoveTelephoneByClientDTO): Promise<Client> {
         const { clientId, telephoneId } = dto;
-        const client = await this.clientRepository.findById(clientId);
+        const client = await this.clientRepository.findById(Number(clientId));
 
         if(!client){
             throw new Error('Cliente não encontrado');

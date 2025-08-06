@@ -1,6 +1,6 @@
 import { Client } from '../../domain/client';
 import { Telephone, TypeTelephone } from '../../domain/telephone';
-import { IClientRepository } from '../ports/repositories/clientRepository';
+import { IClientRepository } from '../ports/repositories/IClientRepository';
 
 interface InsertTelephoneToClientDTO {
     clientId: string;
@@ -18,7 +18,7 @@ export class InsertTelephoneToClient {
 
     async execute(dto: InsertTelephoneToClientDTO): Promise<Client> {
         const {clientId, telephoneId, type, number} = dto;
-        const client = await this.clientRepository.findById(clientId);
+        const client = await this.clientRepository.findById(Number(clientId));
 
         console.log('-----dto: ', dto)
         console.log('-----client: ', client)

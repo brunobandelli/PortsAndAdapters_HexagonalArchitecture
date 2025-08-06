@@ -17,8 +17,10 @@ enum TypeTelephone {
 
 // ======== Models ========
 model Client {
-  id        String      @id @default(cuid())
+  id        Int         @id @default(autoincrement())
   name      String
+  email     String?     @unique
+  password  String?
   telephone Telephone[]
 }
 
@@ -27,5 +29,5 @@ model Telephone {
   type     TypeTelephone
   number   String
   client   Client        @relation(fields: [clientId], references: [id])
-  clientId String
+  clientId Int
 }
