@@ -1,4 +1,4 @@
-# 🔷 Ports and Adaptors (Arquitetura Hexagonal) com Node.js + TypeScript + Prisma
+# 🔷 Ports and Adaptors (Arquitetura Hexagonal) com Node.js + TypeScript + Prisma + bcrypt
 
 Uma prova de conceito simples de **Arquitetura Hexagonal (Ports & Adapters)**, desenvolvida em Node.js com TypeScript.
 
@@ -56,8 +56,12 @@ npm run prisma:generate
 # Rode as migrações para criar o banco
 npm run prisma:migrate
 
+# (Opcional) Visualize e edite os dados do banco com o Prisma Studio
+npm run prisma:studio
+
 # Inicie a aplicação com o banco ativo
 npm run dev
+
 ```
 
 > ⚠️ É importante rodar `prisma:generate` e `prisma:migrate` antes de `npm run dev`, ou o banco não estará disponível.
@@ -86,21 +90,24 @@ src/
 │   │   └── clientController.ts       # Controller HTTP de cliente
 │   │
 │   ├── providers/
-│   │   └── bcrypt.provider.ts        # Provedor de hash usando bcrypt
-│   │
+│   │   ├── PseudoCrypto.provider.ts      # Provedor de criptografia fake
+│   │   └── RealCrypto.provider.ts        # Provedor de hash usando bcrypt
 │   └── repositories/
 │       ├── clientInMemoryRepository.ts   # Repositório fake (memória)
 │       └── clientPrismaRepository.ts     # Repositório real (Prisma)
 │
 ├── application/
 │   ├── ports/                          
-│   │   ├── providers/                  # Contratos de providers (ex: hash)
+│   │   ├── providers/                  
+│   │   │   └── CryptoProvider.ts       # Contratos de providers (ex: hash)
 │   │   └── repositories/
-│   │       └── clientRepository.ts     # Contrato do repositório de cliente
+│   │       └── ClientRepository.ts     # Contrato do repositório de cliente
 │   │
 │   └── use-cases/
-│       ├── insertTelephoneToClient.ts   # Caso de uso: adicionar telefone
-│       └── removeTelephoneByClient.ts   # Caso de uso: remover telefone
+│       ├── InsertTelephoneToClient.ts   # Caso de uso: adicionar telefone
+│       ├── RemoveTelephoneByClient.ts   # Caso de uso: remover telefone
+│       ├── UserRegister.ts.ts           # Caso de uso: registrar usuario
+│       └── UserLogin.ts                 # Caso de uso: fazer login do usuario
 │
 ├── domain/
 │   ├── client.ts                      # Entidade de cliente
@@ -143,10 +150,14 @@ src/
 
 ## 📺 Referência
 
-Projeto inspirado no vídeo:  
+Projeto inspirado nos vídeos:  
 > **Arquitetura Hexagonal (Explicação de Ports & Adapters Simplificada) ** – Código Fonte TV  
-> Vidéo explicando cada camada da arquitetura passo a passo em Node.js.  
+> Vidéo explicando teoria e cada camada da arquitetura passo a passo em Node.js.  
 [Arquitetura Hexagonal (Explicação de Ports & Adapters Simplificada) ](https://www.youtube.com/watch?v=7SaA3HCOc4c)
+
+> **Arquitetura Hexagonal Simplificada** – cod3r cursos  
+> Vidéo explicando na prática cada camada da arquitetura passo a passo em um PoC simples em Node.js.  
+[Arquitetura Hexagonal Simplificada](https://www.youtube.com/watch?v=XA6J9GM1TCQ&utm_source=chatgpt.com)
 
 
 ---
